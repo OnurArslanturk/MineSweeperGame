@@ -34,12 +34,19 @@ public class Main {
         while(true) {
 
             System.out.print("Please enter row index between 0-" + (i - 1) + " and enter column index between 0-" + (j - 1) + " : ");
+
             sldi = inp.nextInt();
             sldj = inp.nextInt();
 
             if (sldi<=i-1 && sldj<=j-1) {
+
+                //Game over condition
                 if (matrix[sldi][sldj] == " * ") {
-                    System.out.println("GAME OVER");
+                    System.out.println("========================================================================");
+                    System.out.println("========================================================================");
+                    System.out.println("                              GAME OVER                                 ");
+                    System.out.println("========================================================================");
+                    System.out.println("========================================================================");
                     break;
                 } else if (showBoard[sldi][sldj] == " - ") {
                     if (sldi - 1 >= 0 && sldj - 1 >= 0) {
@@ -103,14 +110,14 @@ public class Main {
         System.out.println("Welcome to Mine Sweeper Game!");
         System.out.println("========================================================================");
         Scanner inp = new Scanner(System.in);
-        int j, i;
+        int j=0, i=0;
         while (true) {
-            System.out.print("Number of columns : ");
+            System.out.print("Number of columns between 2 and 100 : ");
             j = inp.nextInt();
-            System.out.print("Number of rows : ");
+            System.out.print("Number of rows between 2 and 100 : ");
             i = inp.nextInt();
-            if (i>1 && j>1) break;
-            else System.out.println("Game board needs to be bigger than 1x1. At least 2x2");
+            if (i>1 && j>1 && i<101 && j<101) break;
+            else System.out.println("Game board needs to be bigger than 1x1(at least 2x2) and smaller than 101x101(max 100x100)");
         }
         game(i, j);
     }
